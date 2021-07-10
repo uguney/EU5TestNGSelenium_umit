@@ -7,24 +7,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
 
-    /*  MY SOLUTION
-
-    public static WebDriver getDriver(String browserType){
-
-        WebDriver driver = null;
-
-        if(browserType.equalsIgnoreCase("chrome")){
-           WebDriverManager.chromedriver().setup();
-           return new ChromeDriver();
-        }else if(browserType.equalsIgnoreCase("firefox")){
-            WebDriverManager.firefoxdriver().setup();
-            return new FirefoxDriver();
-
-        }
-
-        return driver;
-
-    }*/
 
     public static WebDriver getDriver(String browserType){
 
@@ -44,6 +26,25 @@ public class WebDriverFactory {
         return driver;
 
     }
+
+      /*  MY SOLUTION
+
+    public static WebDriver getDriver(String browserType){
+
+        WebDriver driver = null;
+
+        if(browserType.equalsIgnoreCase("chrome")){
+           WebDriverManager.chromedriver().setup();
+           return new ChromeDriver();
+        }else if(browserType.equalsIgnoreCase("firefox")){
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver();
+
+        }
+
+        return driver;
+
+    }*/
 
 
 }
