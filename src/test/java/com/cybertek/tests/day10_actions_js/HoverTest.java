@@ -26,79 +26,47 @@ public class HoverTest {
         driver.quit();
     }
 
+
+
     /**
      * hover over each image in the website
      * verify each name:user text is displayed
      */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
-    public void oneImage() throws InterruptedException {
+    public void secondImage() throws InterruptedException {
+
         driver.get("http://practice.cybertekschool.com/hovers");
 
-        WebElement img1 = driver.findElement(By.tagName("img"));
+        WebElement secondImage = driver.findElement(By.xpath("(//img[@alt='User Avatar'])[2]"));
 
-        Actions actions = new Actions(driver);
-
+        Actions act = new Actions(driver);
         Thread.sleep(2000);
-        actions.moveToElement(img1).perform();
+        act.moveToElement(secondImage).perform();
 
-        WebElement text1 = driver.findElement(By.xpath("//h5[.='name: user1']"));
+        Assert.assertTrue(driver.findElement(By.xpath("//h5[.='name: user2']")).isDisplayed(), "verify user2 is displayed");
 
-        Assert.assertTrue(text1.isDisplayed(),"verify text 1 is displayed");
 
     }
 
-    /**
-     * hover over each image in the website
-     * verify each name:user text is displayed
-     */
     @Test
-    public void test2() throws InterruptedException {
+    public void imageDynamic() throws InterruptedException {
+
         driver.get("http://practice.cybertekschool.com/hovers");
 
         for (int i = 1; i <= 3; i++) {
 
-            String xpathImg = "(//img)["+i+"]";
-            WebElement img = driver.findElement(By.xpath(xpathImg));
-            System.out.println(xpathImg);
+            WebElement Images = driver.findElement(By.xpath("(//img[@alt='User Avatar'])[" + i + "]"));
 
-            Actions actions = new Actions(driver);
-            Thread.sleep(1000);
-            actions.moveToElement(img).perform();
+            Actions act = new Actions(driver);
+            Thread.sleep(2000);
+            act.moveToElement(Images).perform();
 
-            String textXpath = "//h5[.='name: user"+i+"']";
-            WebElement text1 = driver.findElement(By.xpath(textXpath));
-            System.out.println(textXpath);
-            Assert.assertTrue(text1.isDisplayed(),"verify user "+i+" is displayed");
+            Assert.assertTrue(driver.findElement(By.xpath("//h5[.='name: user" + i + "']")).isDisplayed(), "verify user " + i + " is displayed");
 
         }
 
-
-
-
-
     }
+
 
 }
